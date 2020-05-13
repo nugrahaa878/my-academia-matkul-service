@@ -12,7 +12,7 @@ before_script:
 
 stages:
   - build
-#  - test
+  - test
   - deploy
 
 Build:
@@ -20,11 +20,10 @@ Build:
   script:
     - gradle build
 
-#Test:
-#  stage: test
-#  script:
-#    - gradle :MyAc:check
-#    - gradle :MyAc:jacocoTestReport
+Test:
+  stage: test
+  script:
+    - gradle check
 
 Production:
   image: ruby:2.4
