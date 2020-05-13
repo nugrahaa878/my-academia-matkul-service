@@ -25,7 +25,7 @@ public class MatkulServiceImplTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        this.matkul = new Matkul("CS1234", "Matkul Test", 2, 5);
+        this.matkul = new Matkul("CS1234", "Matkul test", 2, 3, "Lorem ipsum");
     }
 
     @Test
