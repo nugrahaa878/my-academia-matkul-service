@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.MyAc.matkulservice.service;
 
 import id.ac.ui.cs.advprog.MyAc.matkulservice.model.Matkul;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
