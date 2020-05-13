@@ -19,23 +19,36 @@ public class MatkulController {
 
     @GetMapping
     public ResponseEntity<List<Matkul>> findAll(){
-        return null;
+        return new ResponseEntity<>(matkulService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity create(@RequestBody Matkul matkul){
-        return null;
+        matkulService.register(matkul);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/{kode}")
     public ResponseEntity<Matkul> findById(@PathVariable String kode){
-        return null;
+        Optional<Matkul> optionalMatkul = matkulService.findMatkul(kode);
+
+        if(!optionalMatkul.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Matkul>(optionalMatkul.get(),HttpStatus.OK);
 
     }
 
     @GetMapping("/semester/{semester}")
     public ResponseEntity<List<Matkul>> findMatkulBySemester(@PathVariable int semester){
-        return null;
+        List<Matkul> listMatkul = matkulService.findMatkulBySemester(semester);
+
+        if(listMatkul.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity(listMatkul, HttpStatus.OK);
+
     }
 
 }

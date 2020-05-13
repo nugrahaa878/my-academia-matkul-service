@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "matkul")
@@ -21,14 +22,20 @@ public class Matkul {
     @Column(name = "sks")
     private int sks;
 
-    @Column(name = "penjelasan")
+    @Column(name = "penjelasan", length = 1000)
+    @Size(max = 1000)
     private String penjelasan;
 
-    public Matkul(String kode,String nama, int semester, int sks){
+    public Matkul() {
+
+    }
+
+    public Matkul(String kode,String nama, int semester, int sks, String penjelasan){
         this.nama = nama;
         this.kode = kode;
         this.semester = semester;
         this.sks = sks;
+        this.penjelasan = penjelasan;
     }
 
     public String getKode() {
